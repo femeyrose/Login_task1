@@ -4,14 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  details = {
-    "a@gmail.com": { name: "user1",num:1001, email: "a@gmail.com",password: 1234 },
-    "b@gmail.com": { name: "user2",num:1002, email: "b@gmail.com", password: 1235 },
-    "c@gmail.com": { name: "user3",num:1003, email: "c@gmail.com", password: 1236 },
-    "d@gmail.com": { name: "user4",num:1004, email: "d@gmail.com", password: 1237 },
-    "e@gmail.com": { name: "user5", num:1005,email: "e@gmail.com", password: 1238 },
+  details = [
+     { name: "user1",num:1001, email: "a@gmail.com", password: 1234 },
+     { name: "user2",num:1002, email: "b@gmail.com", password: 1235 },
+     { name: "user3",num:1003, email: "c@gmail.com", password: 1236 },
+     { name: "user4",num:1004, email: "d@gmail.com", password: 1237 },
+    { name: "user5", num:1005,email: "e@gmail.com", password: 1238 },
 
-  }
+  ]
 
   constructor() {this.getDetails() }
 
@@ -55,14 +55,12 @@ export class DataService {
   }
 
   login(email1, password) {
-    // var data = this.details;
-    const data ={email1,password}
+    var data = this.details;
     if (email1 in data) {
       var pwd = data[email1].password
       if (pwd == password) {
-        // this.currentUser = data[email];
-        // this.saveDetails();
-       
+        this.currentUser = data[email1];
+        this.saveDetails();
         return true;
       }
     }
