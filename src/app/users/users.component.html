@@ -1,0 +1,25 @@
+<app-dashboard></app-dashboard>
+
+<!-- Page content --> -->
+ <div class="main">  
+<table class="table">
+    <thead class="thead-dark">
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Add</th>
+    </thead>
+   
+        <tbody >
+            <tr *ngFor="let todo of todos; let i = index">
+          <td>{{todo.name}}</td>
+          <td>{{todo.email}}</td>
+          <td><button class="btn"><i class='fas fa-edit' style='font-size:10px'></i></button></td>
+          <td><button class="btn"><i class='fa fa-close' style='font-size:10px'></i></button></td>
+          <td><button class="btn">+</button></td>
+        </tr>
+        </tbody>
+    
+</table>
+  </div>

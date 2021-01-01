@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainPageComponent } from './main-page/main-page.component';
 import {SignComponent} from './sign/sign.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {UsersComponent} from './users/users.component';
 
 
 const routes: Routes = [
@@ -13,6 +15,15 @@ const routes: Routes = [
     path:'sign',component: SignComponent,
   
   },
+  {
+    path:'dash',component: DashboardComponent,
+  
+  },
+  {
+    path:'users',component: UsersComponent,
+  
+  },
+
 ];
 
 @NgModule({

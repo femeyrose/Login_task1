@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SignComponent } from './sign/sign.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    SignComponent
+    SignComponent,
+    DashboardComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
