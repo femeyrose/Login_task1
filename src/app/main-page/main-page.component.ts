@@ -68,20 +68,51 @@ export class MainPageComponent implements OnInit {
     var pass = this.loginForm.value.pwd
 
 
-  var users = data.filter(obj => obj.email == email && obj.password == pass)
-  console.log(data)
-  console.log(users)
+ 
+    //  var users = data.filter(obj => obj.email == email && obj.password == pass)
+    //  console.log(data)
+    // console.log(users)
+     
+    var flag
+    var filter= {email:this.loginForm.value.email,password:this.loginForm.value.pwd}
+    console.log(filter)
+    var users= data.filter(item => {
+      for (let key in filter) {
+        if (item[key] === undefined || item[key] != filter[key]) {
+        flag=0
+        return false; 
+        }
+        //alert("invalid credentials or form is invalid")
+           
+      }
+      alert("successfull login")
+      this.dataService.saveDetails();
+      console.log(this.dataService.details);
+      console.log(users)
+      this.router.navigateByUrl("dash");
+      return true;
 
-  //   if(data.filter(obj => obj.email === email && obj.password === pass)){
+      
+    });
+    
+    
+    
+  
+
+  //   if(data.filter(obj => obj.email == email && obj.password == pass)){
   //     alert("successfull login")
-  //           this.router.navigateByUrl("dash");
-  //           this.dataService.saveDetails();
+  //         this.dataService.saveDetails();
   //           console.log(this.dataService.details);
-  // } 
+  //           this.router.navigateByUrl("dash");
+            
+  //  } 
+
   // else
   // {
   //   alert("invalid credentials or form is invalid")
   // }
+}
+}
 
 // var obj= {email:"email",password:"pass"}
 //   function containsObject(obj, data) {
@@ -99,9 +130,9 @@ export class MainPageComponent implements OnInit {
 //     }
 
     
-}
+
         
-}
+
 
   
 

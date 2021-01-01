@@ -59,9 +59,9 @@
 
                     <div class="form-group">
                         <!-- <label for="exampleInputPassword1">Password</label> -->
-                        <!-- <input formControlName="pwd" name="pwd" type="password" class="form-control" id="exampleInputPassword1d"> -->
-                        <input formControlName="pwd" name="pwd" class="pass" type="password" align="center" class="pass"
-                            placeholder="Password" id="Password1">
+                        <!-- <input formControlName="pwd" name="pwd"  type="password" class="form-control" id="exampleInputPassword1d"> -->
+                        <input formControlName="pwd" name="pwd"  autocomplete="on" class="pass" type="password" align="center" class="pass"
+                             placeholder="Password" id="Password1">
                         <div *ngIf="getError('pwd')" class=error>pwd is invalid</div>
                     </div>
 

@@ -1,3 +1,4 @@
+import { compileInjectable } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -83,23 +84,58 @@ export class SignComponent implements OnInit {
     var name = this.signForm.value.name
     var num = this.signForm.value.num
 
-      if (data.filter(obj => obj.email === email && obj.password === pass)) {
-        alert("Account already exists. Please login")
-        this.router.navigateByUrl("");
-      }
-      else {
-       alert("Registered Successfully")
-        this.data.push({
-          name:name,
-          num:num,
-          email:email,
-          password:pass,
-        });
+      // if (data.filter(obj => obj.email === email && obj.password === pass)) {
+      //   alert("Account already exists. Please login")
+      //   this.router.navigateByUrl("");
+      // }
+      // else {
+      //  alert("Registered Successfully")
+      //   this.data.push({
+      //     name:name,
+      //     num:num,
+      //     email:email,
+      //     password:pass,
+      //   });
     
-      console.log("after", this.dataService.details)
-      this.dataService.saveDetails();
+      // console.log("after", data)
+      // this.dataService.saveDetails();
+      // }
+    var flag
+    var filter= {email:this.signForm.value.email,password:this.signForm.value.pwd}
+    console.log(filter)
+    var users= data.filter(item => {
+      for (let key in filter) {
+      if (item[key] === undefined || item[key] != filter[key]) {
+      flag =1
+      break
       }
+      else{
+        flag=0
+        break
+      }
+      //return true   
+      }
+
+    });
+
+   if (flag==1) {
+    alert("Registered Successfully")
+      this.data.push({
+        name:name,
+        num:num,
+        email:email,
+        password:pass,
+      });
   
+    console.log("after", data)
+    this.dataService.saveDetails();
+   
+    }
+
+    else if(flag==0){
+      alert("Account already exists. Please login")
+        this.router.navigateByUrl("");
+    }
       }
   }
   
