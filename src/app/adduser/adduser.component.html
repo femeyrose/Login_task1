@@ -1,0 +1,59 @@
+<app-dashboard></app-dashboard>
+
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <p class="sign" align="center">New User Registration...!</p>
+
+                <form [formGroup]="signForm" (ngSubmit)="sign()">
+
+                    <div class="form-group">
+                        <!-- <label for="nam">Name</label> -->
+                        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                        <!-- <input formControlName="name" name="name" type="text" class="form-control" id="nam"> -->
+                        <input formControlName="name" name="name" class="pass" type="text" align="center"
+                            placeholder="Name" id="name2">
+                        <div *ngIf="getError('name')" class=error>Name is invalid</div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label for="numb">Register Number</label> -->
+                        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                        <!-- <input formControlName="num" name="num" type="text" class="form-control" id="numb"> -->
+                        <input formControlName="num" name="num" class="pass" type="text" align="center"
+                            placeholder="Reg Number" id="num2">
+                        <div *ngIf="getError('num')" class=error>Number is invalid</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="exampleInputEmail1">Email address</label> -->
+                        <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> -->
+                        <!-- <input formControlName="email" name="email" type="email" class="form-control" id="exampleInputEmail1"> -->
+                        <input class="un " formControlName="email" name="email" type="email" align="center" class="pass"
+                            placeholder="Email" id="Email2">
+                        <div *ngIf="getError('email')" class=error>Email is invalid</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="exampleInputPassword1">Password</label> -->
+                        <!-- <input type="password" class="form-control" id="exampleInputPassword1"> -->
+                        <!-- <input formControlName="pwd" name="pwd" type="password" class="form-control" id="exampleInputPassword1d"> -->
+                        <input formControlName="pwd" name="pwd" class="pass" type="password" align="center" class="pass"
+                            placeholder="Password" id="password2">
+                        <div *ngIf="getError('pwd')" class=error>pwd is invalid</div>
+                    </div>
+
+                    <!-- <button type="submit" class="btn btn-primary" >Register</button> -->
+                    <button type="submit" class="submit" align="center">Register</button> 
+                    <!-- <button id="one" class="btn btn-primary"><a routerLink="" id="two">Back to Login</a></button> -->
+                    <p class="forgot" align="center">Please login with your credentials..</p>
+                    <button class="submit" align="center" routerLink="" href="" id="two">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

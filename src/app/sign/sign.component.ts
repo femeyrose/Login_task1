@@ -100,42 +100,50 @@ export class SignComponent implements OnInit {
       // console.log("after", data)
       // this.dataService.saveDetails();
       // }
-    var flag
-    var filter= {email:this.signForm.value.email,password:this.signForm.value.pwd}
+    //var flag
+    const filter= {email:email,password:pass}
     console.log(filter)
     var users= data.filter(item => {
-      for (let key in filter) {
-      if (item[key] === undefined || item[key] != filter[key]) {
-      flag =1
-      break
+     // for (let key in filter) {
+      if (item.email==this.signForm.value.email && item.password==this.signForm.value.pwd) 
+      {
+        alert("Account already exists. Please login")
+       this.router.navigateByUrl("");
       }
-      else{
-        flag=0
-        break
-      }
-      //return true   
-      }
-
-    });
-
-   if (flag==1) {
-    alert("Registered Successfully")
+      else {
+      alert("Registered Successfully")
+      console.log("after push to array", data)
       this.data.push({
         name:name,
         num:num,
         email:email,
         password:pass,
+
       });
-  
-    console.log("after", data)
-    this.dataService.saveDetails();
-   
+       this.dataService.saveDetails();
+       
     }
 
-    else if(flag==0){
-      alert("Account already exists. Please login")
-        this.router.navigateByUrl("");
-    }
+    });
+
+  //  if (flag==1) {
+    // alert("Registered Successfully")
+    //   this.data.push({
+    //     name:name,
+    //     num:num,
+    //     email:email,
+    //     password:pass,
+    //   });
+  
+    // console.log("after push to array", users)
+    // this.dataService.saveDetails();
+   
+    // }
+
+    // else if(flag==0){
+    //   alert("Account already exists. Please login")
+    //     this.router.navigateByUrl("");
+    // }
       }
   }
   

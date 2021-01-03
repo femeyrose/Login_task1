@@ -63,7 +63,7 @@ export class MainPageComponent implements OnInit {
   }
 
   login() { 
-    let data = this.dataService.details;
+    var data = this.dataService.details;
     var email = this.loginForm.value.email
     var pass = this.loginForm.value.pwd
 
@@ -73,29 +73,54 @@ export class MainPageComponent implements OnInit {
     //  console.log(data)
     // console.log(users)
      
-    var flag
-    var filter= {email:this.loginForm.value.email,password:this.loginForm.value.pwd}
+    //var flag
+    const filter= {email:this.loginForm.value.email,password:this.loginForm.value.pwd}
     console.log(filter)
     var users= data.filter(item => {
-      for (let key in filter) {
-        if (item[key] === undefined || item[key] != filter[key]) {
-        flag=0
-        return false; 
-        }
-        //alert("invalid credentials or form is invalid")
-           
-      }
-      alert("successfull login")
-      this.dataService.saveDetails();
+    console.log(item)
+      // for (let key in filter) {
+      //   if (item[key] === undefined || item[key] != filter[key]) 
+      //   {
+          
+      //  // flag=1
+      //  //alert("invalid credentials or form is invalid")
+      //   return false;
+      //   } 
+      //   //flag=0
+      //   return true ;   
+      // }
+ if(item.email==this.loginForm.value.email && item.password==this.loginForm.value.pwd){
+   console.log("test")
+   alert("successfull login")
+    this.dataService.saveDetails();
       console.log(this.dataService.details);
-      console.log(users)
+      //console.log("filtered output"+users)
       this.router.navigateByUrl("dash");
-      return true;
-
       
+ }
+
+       
     });
-    
-    
+      
+      // alert("successfull login")
+      // this.dataService.saveDetails();
+      // console.log(this.dataService.details);
+      //console.log("filtered output"+users)
+      // this.router.navigateByUrl("dash");
+      
+
+    // if (flag==1)
+    // {
+    //   alert("invalid credentials or form is invalid")
+    // }
+    // else if(flag==0){
+    //   alert("successfull login")
+    //   this.dataService.saveDetails();
+    //   console.log(this.dataService.details);
+    //   console.log(users)
+    //   this.router.navigateByUrl("dash");
+
+    // }
     
   
 

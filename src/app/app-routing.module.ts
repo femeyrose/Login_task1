@@ -4,6 +4,11 @@ import { MainPageComponent } from './main-page/main-page.component';
 import {SignComponent} from './sign/sign.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UsersComponent} from './users/users.component';
+import {EdituserComponent} from './edituser/edituser.component';
+import {DeleteuserComponent} from './deleteuser/deleteuser.component';
+import {AdduserComponent} from './adduser/adduser.component';
+import {EditComponent} from './edit/edit.component';
+
 
 
 const routes: Routes = [
@@ -21,6 +26,22 @@ const routes: Routes = [
   },
   {
     path:'users',component: UsersComponent,
+  
+  },
+  {
+    path:'edit',component: EdituserComponent,
+  
+  },
+  {
+    path:'add',component: AdduserComponent,
+  
+  },
+  {
+    path:'delete',component: DeleteuserComponent,
+  
+  },
+  {
+    path:'edituser',component: EditComponent,
   
   },
 

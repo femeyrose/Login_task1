@@ -1,0 +1,68 @@
+<app-dashboard></app-dashboard>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <p class="sign" align="center">Edit the Details..</p>
+
+                <form [formGroup]="signForm" (ngSubmit)="sign()">
+
+                    <div class="form-group">
+                        <!-- <label for="nam" class="pass">Name</label> -->
+                        <input formControlName="name" name="name" class="pass" type="text" align="center"
+                            placeholder="Old Name" id="nam">
+                            <div *ngIf="getError('name')" class=error>Name is invalid</div>
+                            <input formControlName="name2" name="name2" class="pass" type="text" align="center"
+                            placeholder="New Name" id="nam2">
+                       
+                        <div *ngIf="getError('name2')" class=error>Name is invalid</div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- <label for="numb">Register Number</label> -->
+                        
+                        <input formControlName="num" name="num" class="pass" type="text" align="center"
+                            placeholder="Old Reg Number" id="no">
+                            <div *ngIf="getError('num')" class=error>Number is invalid</div>
+                            <input formControlName="num2" name="num2" class="pass" type="text" align="center"
+                            placeholder=" New Reg Number" id="no">
+                        
+                        <div *ngIf="getError('num2')" class=error>Number is invalid</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="exampleInputEmail1">Email address</label> -->
+                        
+                        <input class="un " formControlName="email" name="email" type="email" align="center" class="pass"
+                            placeholder="Old Email" id="Emal">
+                            <div *ngIf="getError('email')" class=error>Email is invalid</div>
+                            <input class="un " formControlName="email2" name="email2" type="email" align="center" class="pass"
+                            placeholder="New Email" id="Emal">
+                        
+                        <div *ngIf="getError('email2')" class=error>Email is invalid</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="exampleInputPassword1">Password</label> -->
+                        
+                        <input formControlName="pwd" name="pwd" class="pass" type="password" align="center" class="pass"
+                            placeholder="Old Password" id="passwrd">
+                            <div *ngIf="getError('pwd')" class=error>pwd is invalid</div>
+                            <input formControlName="pwd2" name="pwd2" class="pass" type="password" align="center" class="pass"
+                            placeholder="New Password" id="passwrd">
+                        
+                        <div *ngIf="getError('pwd2')" class=error>pwd is invalid</div>
+                    </div>
+
+                    
+                    <button type="submit" class="submit" align="center">Edit</button> 
+                    
+                    <!-- <button class="submit" align="center" routerLink="" id="two">Back to Login</button> -->
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
