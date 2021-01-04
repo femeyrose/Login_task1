@@ -66,41 +66,89 @@ export class MainPageComponent implements OnInit {
     var data = this.dataService.details;
     var email = this.loginForm.value.email
     var pass = this.loginForm.value.pwd
-
+    var isLogin=false;
 
  
-    //  var users = data.filter(obj => obj.email == email && obj.password == pass)
-    //  console.log(data)
-    // console.log(users)
+   var users = data.filter(obj => obj.email == email && obj.password == pass);
+     console.log(data)
+    console.log(users);
+
+    if(users){
+      alert("successfull login")
+          this.dataService.saveDetails();
+            console.log(this.dataService.details);
+            console.log("filtered output"+users)
+            this.router.navigateByUrl("dash"); 
+
+    }
+    else{
+      alert("invalid login")
+
+    }
      
     //var flag
-    const filter= {email:this.loginForm.value.email,password:this.loginForm.value.pwd}
-    console.log(filter)
-    var users= data.filter(item => {
-    console.log(item)
-      // for (let key in filter) {
-      //   if (item[key] === undefined || item[key] != filter[key]) 
-      //   {
+    // const filter= {email:this.loginForm.value.email,password:this.loginForm.value.pwd}
+    // console.log(filter)
+//     var users= data.filter(item => {
+//     console.log(item)
+// //       // for (let key in filter) {
+// //       //   if (item[key] === undefined || item[key] != filter[key]) 
+// //       //   {
           
-      //  // flag=1
-      //  //alert("invalid credentials or form is invalid")
-      //   return false;
-      //   } 
-      //   //flag=0
-      //   return true ;   
-      // }
- if(item.email==this.loginForm.value.email && item.password==this.loginForm.value.pwd){
-   console.log("test")
-   alert("successfull login")
-    this.dataService.saveDetails();
-      console.log(this.dataService.details);
-      //console.log("filtered output"+users)
-      this.router.navigateByUrl("dash");
-      
- }
+// //       //  // flag=1
+// //       //  //alert("invalid credentials or form is invalid")
+// //       //   return false;
+// //       //   } 
+// //       //   //flag=0
+// //       //   return true ;   
+// //       // }
+//       if(item.email==this.loginForm.value.email && item.password==this.loginForm.value.pwd){
+//         //console.log("test")
+//         isLogin=true;
+//         alert("successfull login")
+//           this.dataService.saveDetails();
+//             console.log(this.dataService.details);
+//             //console.log("filtered output"+users)
+//             this.router.navigateByUrl("dash");    
+//       } else {
+//         isLogin=false;
+//         alert("invalid credentials")
+//       }
+//     });
 
-       
-    });
+    // console.log(isLogin)
+    
+  }
+}
+
+
+// login() {
+//   if (this.loginForm.valid) {
+//     const result = this.dataService.login(this.loginForm.value.email, this.loginForm.value.pwd);
+    
+//     this.dataService.saveDetails();
+//     this.router.navigateByUrl("dash");
+
+//   }  
+// else
+//   {
+//     alert("form is invalid")
+//   }
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
       
       // alert("successfull login")
       // this.dataService.saveDetails();
@@ -136,8 +184,6 @@ export class MainPageComponent implements OnInit {
   // {
   //   alert("invalid credentials or form is invalid")
   // }
-}
-}
 
 // var obj= {email:"email",password:"pass"}
 //   function containsObject(obj, data) {

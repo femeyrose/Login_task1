@@ -32,6 +32,7 @@ export class DataService {
   }
 
   saveDetails() {
+    console.log("inside dataService"+this.details)
     localStorage.setItem("details", JSON.stringify(this.details));
 
     if (this.currentUser) {
@@ -39,38 +40,38 @@ export class DataService {
     }
   }
 
-  // getTodos(){
-
-  //   return this.details()
-  // }
-
-
-  // sign(name,num,email,pwd) {
-  //   if (email in this.details) {
-  //     alert("account already exists. Please login")
-  //     return false; 
-  //   }
-   
-  //   this.details[email] = {
-  //     name,
-  //     num,
-  //     email,
-  //     password: pwd,
-  //   }
-  //   // console.log("after", this.details)
-  //   this.saveDetails();
-  //   return true;
-  // }
-
-  // login(email1, password) {
-  //   var data = this.details;
-  //   if (email1 in data) {
-  //     var pwd = data[email1].password
-  //     if (pwd == password) {
-  //       this.currentUser = data[email1];
-  //       this.saveDetails();
-  //       return true;
+  // login(email1, password1) {
+  //   var em=email1
+  //   var ps=password1
+  //  var data = this.details;
+  //  const data1 ={email1,password1}
+  //  var users= data.filter(item => {
+  //   if (item.email in data1 && item.password in data1 ) {
+  //    console.log(data1)
+  //       return {
+  //         status:true,
+  //         message:'Logged in successfully'
+  //       }
+  //       // alert("login successfull")
+  //       // return true
   //     }
-  //   }
+  //     else {
+  //       return {
+  //         status:false,
+  //         message:'Invalid Credentials'
+  //       }
+  //       // alert("invalid login")
+  //       // return false
+  //     }
+
+  //  })
+
+
+  
   // }
+
+
+
+
+
 }
